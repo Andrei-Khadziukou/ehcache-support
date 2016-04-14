@@ -1,2 +1,4 @@
 rootProject.name = 'ehcache-support'
 
+include 'ehcache-support-common', 'ehcache-support-fi', 'ehcache-support-si'
+

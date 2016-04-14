@@ -1,0 +1,16 @@
+group 'com.epam.ehcache-support'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+
+mainClassName = "com.epam.ehcache.support.si.Runner"
+
+dependencies {
+    compile project (':ehcache-support-common')
+
+    //    compile 'org.mybatis.caches:mybatis-ehcache:1.0.3'
+    compile files('lib/mybatis-ehcache-1.1.0-SNAPSHOT.jar')
+    compile 'net.sf.ehcache.internal:ehcache-core:2.10.1'
+    compile 'org.terracotta.internal:statistics:1.0.3'
+
+}
