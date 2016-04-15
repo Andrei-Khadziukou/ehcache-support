@@ -3,7 +3,7 @@ package com.epam.ehcache.support.fi;
 import com.epam.ehcache.support.common.domain.User;
 import com.epam.ehcache.support.common.service.UserService;
 import com.google.common.collect.Lists;
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
-import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -43,8 +43,10 @@ public class Runner implements Runnable {
     @PostConstruct
     private void init() throws URISyntaxException, IOException {
         jdbcTemplate.execute("CREATE TABLE users (id varchar(255), first_name varchar(255), last_name varchar(255))");
-        String sql = FileUtils.readFileToString(
-                Paths.get(this.getClass().getClassLoader().getResource("users.sql").toURI()).toFile());
+        StringWriter stringWriter = new StringWriter();
+        IOUtils.copy(this.getClass().getClassLoader().getResourceAsStream("users.sql"), stringWriter);
+        String sql = stringWriter.toString();
+
         jdbcTemplate.execute(sql);
     }
 
