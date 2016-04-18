@@ -4,7 +4,7 @@
 
 <mapper namespace="UserMapper">
 
-    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <cache type="com.epam.ehcache.support.cache.CommonCache"/>
 
     <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache">-->
         <!--<property name="timeToIdleSeconds" value="3600"/>&lt;!&ndash;1 hour&ndash;&gt;-->

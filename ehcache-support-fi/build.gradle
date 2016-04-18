@@ -8,9 +8,10 @@ mainClassName = "com.epam.ehcache.support.fi.Runner"
 dependencies {
     compile project (':ehcache-support-common')
 
-    //    compile 'org.mybatis.caches:mybatis-ehcache:1.0.3'
-    compile files('lib/mybatis-ehcache-1.1.0-SNAPSHOT.jar')
-    compile 'net.sf.ehcache.internal:ehcache-core:2.10.1'
-    compile 'org.terracotta.internal:statistics:1.0.3' // 1.0.2 expected
+//    compile 'org.mybatis.caches:mybatis-ehcache:1.0.3'
+//    compile files('lib/mybatis-ehcache-1.1.0-SNAPSHOT.jar')
+//    compile 'net.sf.ehcache.internal:ehcache-core:2.10.1'
+//    compile 'org.terracotta.internal:statistics:1.0.3' // 1.0.2 expected
+    compile 'org.ehcache:ehcache:3.0.0'
 
 }
